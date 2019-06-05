@@ -1,0 +1,6 @@
+= form_with url: :setup do |f|
+
+  .form-group
+    = f.text_field :local_token, class: 'form-control', value: @account_service.local_token
+
+    = f.submit
