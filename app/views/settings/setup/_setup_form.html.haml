@@ -1,6 +1,17 @@
-= form_with url: :setup do |f|
+= form_with url: :settings_setup_index,
+  scope: 'settings',
+  builder: ServiceFormHelper,
+  service_object: @account_service do |f|
 
   .form-group
-    = f.text_field :local_token, class: 'form-control', value: @account_service.local_token
+    = label_tag :local_token, 'Локальный токен агента'
+    = f.text_field :local_token, class: 'form-control', value: @account_service.local_token, readonly: true
 
-    = f.submit
+  .form-group
+    = label_tag :server_token, 'Токен сервера'
+    = f.text_field :server_token,
+      class: 'form-control',
+      placeholder: 'Укажите токен полученный при регистрации агента на nmt.pw',
+      value: @account_service.server_token
+
+  = f.submit class: 'btn btn-primary'

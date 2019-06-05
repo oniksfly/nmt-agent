@@ -1,0 +1,13 @@
+.container
+  .row
+    .col-sm-12
+      %h2 Изменить прокси-сервер
+    .col-sm-12
+      - unless @result.nil?
+        - if @result
+          .alert.alert-primary
+            Прокси доступен
+        - else
+          .alert.alert-danger
+            Прокси недоступен
+      = render partial: 'form'

@@ -1,0 +1,35 @@
+.container
+  .row
+    .col-sm-12
+      %h2 Список proxy-серверов
+    .col-sm-12
+      = link_to 'Добавить прокси-сервер', new_settings_proxy_path
+    .col-sm-12
+      - if @proxies.present?
+        %table.table
+          %thead
+            %tr
+              %th ID
+              %th Proxy
+              %th User
+              %th
+          %tbody
+            - @proxies.each do |proxy|
+              %tr
+                %td= proxy.id
+                %td= proxy.name
+                %td= proxy.username
+                %td
+                  = link_to 'проверить',
+                    test_settings_proxy_path(proxy),
+                    class: 'btn btn-primary'
+                  = link_to 'изменить',
+                    edit_settings_proxy_path(proxy),
+                    class: 'btn btn-primary'
+                  = link_to 'удалить', 
+                    settings_proxy_path(proxy), 
+                    data: { confirm: 'Удалить этот прокси?' }, 
+                    method: :delete,
+                    remote: true,
+                    class: 'btn btn-danger'
+                  

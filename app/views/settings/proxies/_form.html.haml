@@ -1,0 +1,14 @@
+= form_with model: [:settings, @proxy] do |f|
+  - if @proxy.errors.present?
+    %ul.error
+      - @proxy.errors.each do |key, error|
+        %li= error
+
+
+  = f.select :kind, Proxy::TYPES.keys
+  = f.text_field :server_host
+  = f.text_field :server_port
+  = f.text_field :username
+  = f.text_field :password
+
+  = f.submit
