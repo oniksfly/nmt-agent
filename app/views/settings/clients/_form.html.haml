@@ -1,0 +1,14 @@
+= form_with model: @client, url: @client.persisted? ? settings_client_url(@client) : settings_clients_url, scope: 'client' do |f|
+  - if @client.errors.present?
+    %ul.error
+      - @client.errors.each do |key, error|
+        %li= error
+
+  = f.select :type, { 'Transmission': 'Torrents::Clients::Transmission' }
+  = f.text_field :host
+  = f.text_field :port
+  = f.text_field :path
+  = f.text_field :username
+  = f.text_field :password
+
+  = f.submit

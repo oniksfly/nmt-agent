@@ -1,0 +1,31 @@
+.container
+  .row
+    .col-sm-12
+      %h2 Торрент-клиенты
+    .col-sm-12
+      = link_to 'Добавить торрент-клиент', new_settings_client_path
+    .col-sm-12
+      - if @clients.present?
+        %table.table
+          %thead
+            %tr
+              %th ID
+              %th Type
+              %th Address
+              %th
+          %tbody
+            - @clients.each do |client|
+              %tr
+                %td= client.id
+                %td= client.type_name
+                %td= client.address
+                %td
+                  = link_to 'изменить', 
+                    edit_settings_client_path(client),
+                    class: 'btn btn-primary'
+                  = link_to 'удалить', 
+                    settings_client_path(client), 
+                    data: { confirm: 'Удалить этот торрент клиент?' }, 
+                    method: :delete,
+                    remote: true,
+                    class: 'btn btn-danger'

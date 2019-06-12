@@ -11,6 +11,7 @@ gem 'bootstrap'
 gem 'haml-rails'
 gem 'jquery-rails'
 gem 'turbolinks'
+gem 'transmission-rpc-ruby'
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.1.0', require: false

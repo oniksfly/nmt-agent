@@ -3,6 +3,7 @@ Rails.application.routes.draw do
 
   namespace :settings do
     resources :setup, only: [:index, :create]
+    resources :clients
     resources :proxies do
       get :test, on: :member
     end
