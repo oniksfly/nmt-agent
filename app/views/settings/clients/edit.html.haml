@@ -3,4 +3,10 @@
     .col-sm-12
       %h2 Изменить торрент клиент
     .col-sm-12
+      - if @client.persisted? 
+        - if @client.available?
+          .alert.alert-primary Клиент доступен
+        - else
+          .alert.alert-danger Клиент недоступен
+
       = render partial: 'form'
