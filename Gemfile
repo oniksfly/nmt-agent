@@ -12,6 +12,7 @@ gem 'haml-rails'
 gem 'jquery-rails'
 gem 'turbolinks'
 gem 'transmission-rpc-ruby'
+gem 'httparty'
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.1.0', require: false
@@ -20,6 +21,7 @@ group :development do
   gem 'listen', '>= 3.0.5', '< 3.2'
   gem 'ruby-debug-ide'
   gem 'debase'
+  gem 'dotenv-rails'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
